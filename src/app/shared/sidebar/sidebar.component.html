@@ -4,6 +4,6 @@
     <hr class="text-white" />
 
     <div class="list-group list-reset">
-        <a *ngFor="let item of history;" href="#" class="list-group-item list-group-item-action">{{ item }}</a>
+        <a *ngFor="let item of history;" href="#" class="list-group-item list-group-item-action">{{ item | titlecase }}</a>
     </div>
 </div> <!-- #sidebar -->

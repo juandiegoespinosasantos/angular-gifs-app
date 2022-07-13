@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
 
     public search(): void {
         const value = this.txtSearch.nativeElement.value;
+
         console.log(value);
 
         this.gifsService.searchGifs(value);
