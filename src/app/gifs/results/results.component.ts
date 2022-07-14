@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Gif } from "../interfaces/gifs.interface";
 import { GifsService } from "../services/gifs.service";
 
 @Component({
@@ -12,7 +13,7 @@ export class ResultsComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    public get results(): any[] {
+    public get results(): Gif[] {
         return this.gifsService.results;
     }
 }
