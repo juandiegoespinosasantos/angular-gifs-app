@@ -5,6 +5,7 @@ import { Gif, GiphyResponse } from "../interfaces/gifs.interface";
 const historyLimit: number = 10;
 const giphyAPIBaseUrl: string = "http://api.giphy.com/v1/gifs/search";
 const giphyAPIKey: string = "WO4lPnBlJqabTGbxmfQLVf3IBvHZ34qz";
+const localStorageHistoryKey = "history";
 
 @Injectable({
     providedIn: "root"
@@ -15,6 +16,7 @@ export class GifsService {
     private _results: Gif[] = [];
 
     constructor(private httpClient: HttpClient) {
+        this.loadData();
     }
 
     public get history(): string[] {
@@ -36,7 +38,7 @@ export class GifsService {
 
         this._history.unshift(value);
 
-        console.log(this._history);
+        this.saveData();
 
         this.httpClient
             .get<GiphyResponse>(giphyAPIBaseUrl, {
@@ -49,5 +51,15 @@ export class GifsService {
 
                 this._results = resp.data;
             });
+    }
+
+    private loadData(): void {
+        console.log("Retriving data from LocalStorage...");
+
+        this._history = JSON.parse(localStorage.getItem(localStorageHistoryKey)!) || [];
+    }
+
+    private saveData(): void {
+        localStorage.setItem(localStorageHistoryKey, JSON.stringify(this._history));
     }
 }
