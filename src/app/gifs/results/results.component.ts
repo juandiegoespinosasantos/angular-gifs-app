@@ -13,6 +13,10 @@ export class ResultsComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    public get searchParam(): string {
+        return this.gifsService.searchParam;
+    }
+
     public get results(): Gif[] {
         return this.gifsService.results;
     }
