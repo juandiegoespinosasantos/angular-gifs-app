@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Gif, GiphyResponse } from "../interfaces/gifs.interface";
 
 const HISTORY_LIMIT: number = 10;
-const GIPHY_API_BASE_URL: string = "http://api.giphy.com/v1/gifs";
+const GIPHY_API_BASE_URL: string = "https://api.giphy.com/v1/gifs";
 const GIPHY_API_KEY: string = "WO4lPnBlJqabTGbxmfQLVf3IBvHZ34qz";
 const LOCAL_STORAGE_KEY_SEARCH_PARAM = "searchParam";
 const LOCAL_STORAGE_KEY_HISTORY = "history";
