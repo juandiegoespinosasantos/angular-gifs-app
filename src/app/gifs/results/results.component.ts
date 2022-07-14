@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { GifsService } from "../services/gifs.service";
 
 @Component({
     selector: "app-results",
@@ -6,11 +7,12 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ResultsComponent implements OnInit {
 
-    public lipsum: string = `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ex animi eveniet, sint
-     ea soluta sed eum suscipit repellat minus nobis ad iste vero libero vitae officiis, corrupti aliquam consequatur!`;
-
-    constructor() { }
+    constructor(private gifsService: GifsService) { }
 
     ngOnInit(): void {
+    }
+
+    public get results(): any[] {
+        return this.gifsService.results;
     }
 }
